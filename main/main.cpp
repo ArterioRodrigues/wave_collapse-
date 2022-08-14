@@ -12,26 +12,34 @@ int main(){
     Node a6(6);
     Node a7(7);
     Node a8(8);
-    
+
+    cout << a1;
+    // cout << a1.getNorth();
+    // cout << a1.getNorth_East();
+    // cout << a1.getEast();
+    // cout << a1.getSouth_East();
+    // cout << a1.getSouth();
+    // cout << a1.getWest();
+    // cout << a1.getNorth_West();
     Node master(&a2, &a3, &a4, &a5, &a6, &a7, &a8, 0);
 
-    Node a11 = master.getNorth();
-    Node a21 = master.getNorth_East();
-    Node a31 = master.getEast();
-    Node a41 = master.getSouth_East();
-    Node a51 = master.getSouth();
-    Node a61 = master.getSouth_West();
-    Node a71 = master.getWest();
-    Node a81 = master.getNorth_West();
+    // Node a11 = master.getNorth();
+    // Node a21 = master.getNorth_East();
+    // Node a31 = master.getEast();
+    // Node a41 = master.getSouth_East();
+    // Node a51 = master.getSouth();
+    // Node a61 = master.getSouth_West();
+    // Node a71 = master.getWest();
+    // Node a81 = master.getNorth_West();
 
-    cout << " ma  >>  " << master.getValue() << "  << " <<  endl;
-    cout << " a11 >>  " << a11.getValue()  << "  << " <<  endl;
-    cout << " a21 >>  " << a21.getValue()  << "  << " <<  endl;
-    cout << " a31 >>  " << a31.getValue()  << "  << " <<  endl;
-    cout << " a41 >>  " << a41.getValue()  << "  << " <<  endl;
-    cout << " a51 >>  " << a51.getValue()  << "  << " <<  endl;
-    cout << " a61 >>  " << a61.getValue()  << "  << " <<  endl;
-    cout << " a71 >>  " << a71.getValue()  << "  << " <<  endl;
-    cout << " a81 >>  " << a81.getValue()  << "  << " <<  endl;
+    // cout << " ma  >>  " << master.getValue() << "  << " <<  endl;
+    // cout << " a11 >>  " << a11.getValue()  << "  << " <<  endl;
+    // cout << " a21 >>  " << a21.getValue()  << "  << " <<  endl;
+    // cout << " a31 >>  " << a31.getValue()  << "  << " <<  endl;
+    // cout << " a41 >>  " << a41.getValue()  << "  << " <<  endl;
+    // cout << " a51 >>  " << a51.getValue()  << "  << " <<  endl;
+    // cout << " a61 >>  " << a61.getValue()  << "  << " <<  endl;
+    // cout << " a71 >>  " << a71.getValue()  << "  << " <<  endl;
+    // cout << " a81 >>  " << a81.getValue()  << "  << " <<  endl;
     return 0;
 }
