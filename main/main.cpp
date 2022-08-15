@@ -4,42 +4,45 @@ using namespace std;
 
 int main(){
 
-    Node a1(1);
-    Node a2(2);
-    Node a3(3);
-    Node a4(4);
-    Node a5(5);
-    Node a6(6);
-    Node a7(7);
-    Node a8(8);
+    Node* a1 = new Node;
+    Node* a2 = new Node;
+    Node* a3 = new Node;
+    Node* a4 = new Node;
+    Node* a5 = new Node;
+    Node* a6 = new Node;
+    Node* a7 = new Node;
+    Node* a8 = new Node;
 
-    cout << a1;
-    // cout << a1.getNorth();
-    // cout << a1.getNorth_East();
-    // cout << a1.getEast();
-    // cout << a1.getSouth_East();
-    // cout << a1.getSouth();
-    // cout << a1.getWest();
-    // cout << a1.getNorth_West();
-    Node master(&a2, &a3, &a4, &a5, &a6, &a7, &a8, 0);
+    a1->Value = 1;
+    a2->Value = 2;
+    a3->Value = 3;
+    a4->Value = 4;
+    a5->Value = 5;
+    a6->Value = 6;
+    a7->Value = 7;
+    a8->Value = 8;
 
-    // Node a11 = master.getNorth();
-    // Node a21 = master.getNorth_East();
-    // Node a31 = master.getEast();
-    // Node a41 = master.getSouth_East();
-    // Node a51 = master.getSouth();
-    // Node a61 = master.getSouth_West();
-    // Node a71 = master.getWest();
-    // Node a81 = master.getNorth_West();
 
-    // cout << " ma  >>  " << master.getValue() << "  << " <<  endl;
-    // cout << " a11 >>  " << a11.getValue()  << "  << " <<  endl;
-    // cout << " a21 >>  " << a21.getValue()  << "  << " <<  endl;
-    // cout << " a31 >>  " << a31.getValue()  << "  << " <<  endl;
-    // cout << " a41 >>  " << a41.getValue()  << "  << " <<  endl;
-    // cout << " a51 >>  " << a51.getValue()  << "  << " <<  endl;
-    // cout << " a61 >>  " << a61.getValue()  << "  << " <<  endl;
-    // cout << " a71 >>  " << a71.getValue()  << "  << " <<  endl;
-    // cout << " a81 >>  " << a81.getValue()  << "  << " <<  endl;
+    Node* master = new Node;
+
+    master->North = a1;
+    master->North_East = a2;
+    master->East = a3;
+    master->South_East = a4;
+    master->South = a5;
+    master->South_West = a6;
+    master->West = a7;
+    master->North_West = a8;
+    master->Value = 9;
+
+    cout << *master;
+
+    Node* arr[10];
+    
+    for(int i = 0; i < 10; i++){
+        arr[i] = new Node[10];
+        cout << *arr[i] << endl;
+    }
+
     return 0;
 }
