@@ -70,7 +70,7 @@ int* state;
 ...
 ```
 
-And aded a map in the Map obj to hold and adam state or state that holds the rules for all states in the map and how each should change.
+And added a map in the Map obj to hold and adam state or state that holds the rules for all states in the map and how each should change.
 
 ```
 ...
