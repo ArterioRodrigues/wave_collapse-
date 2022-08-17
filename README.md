@@ -80,7 +80,7 @@ int num_state;
 ...
 ```
 
-So far this seem to be a more elegante and simple way that my previous class attempt.
+So far this seem to be a more elegante and simple way than my previous class attempt.
 
 </hr>
 
