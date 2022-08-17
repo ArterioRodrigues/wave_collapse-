@@ -21,6 +21,16 @@ public:
     int Value;           
 ```
 
+> **Node v1.1** update. I added a state to each node as the wave function require me to know what can be change and what affects it. So i add new functions to check state update state and change state.
+```
+void setDefaultState(int value);
+void setState(int value[] , int size);
+void displayState();
+int* getState();
+int  getStateSize();
+
+```
+
 2. Map
 >The map obj was were some complications arouse. I create a consturctor to make a 2d array based on a user input for size but I was creat in the pointer incorrectly.</br></br>
 ```
@@ -49,15 +59,12 @@ void Map::WaveCollapse(){
 
 ## Just Updated 🔥🔥
 
-> Node v1.1 update. I added a state to each node as the wave function require me to know what can be change and what affects it. So i add new functions to check state update state and change state.
-```
-void setDefaultState(int value);
-void setState(int value[] , int size);
-void displayState();
-int* getState();
-int  getStateSize();
+Since i started the wave collapse function i realized i need alot more stuff to make my life easier. so heres a list of what I added: 
 
-```
+* an array node to hold all surrond nodes
+* master node to hold current node
+* various node class function to set the surronding nodes 
+
 
 </br>
 </br>

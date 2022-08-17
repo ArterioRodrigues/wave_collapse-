@@ -16,7 +16,10 @@ class Node {
         Node* South_West;
         Node* West;
         Node* North_West;
+
+        Node** sur_Node;
         
+        void setSurrondingNodes();
         void setDefaultState(int value);
         void setState(int value[] , int size);
         void displayState();

@@ -25,7 +25,8 @@ Map::Map(int row, int col, int value){
             
             
             arr[i][j].setDefaultState(value);
-            arr[i][j].displayState();
+            arr[i][j].setSurrondingNodes();
+            
         }
     }
 
@@ -43,15 +44,33 @@ Map::~Map(){
 }
 
 void Map::WaveCollapse(){
+    
     int rand_row = rand()%(row-1) + 1;
     int rand_col = rand()%(col-1) + 1;
-    int rand_value = rand()%(value+1);
-    
-    arr[rand_row][rand_col].value =  rand_value;
 
+    Node* master = &arr[rand_row][rand_col];
+
+    int rand_value = rand()%(master->getStateSize());
+    
+    int* state = master->getState();
+
+    master->value =  state[rand_value];
+
+    int state_arr[] = {state[rand_value]};
+    master->setState(state_arr , 1);
+
+    //Need to delete later
     cout << "rand_row: " << rand_row << endl;
     cout << "rand_col: " << rand_col << endl;
     cout << "rand_value: " << rand_value << endl;
+    
+    //Update the surronding nodes
+
+    Node* North = master->sur_Node[0];
+    cout << "North: " << *North << endl;
+    
+
+   
 }
 
 
@@ -87,9 +106,9 @@ void Map::connections(){
 }
 
 void Map::MapState(){
-    for(int i = 0; i < act_row; i++){
+    for(int i = 1; i < row; i++){
         cout << "[";
-        for(int j = 0; j < act_col; j++){
+        for(int j = 1; j < col; j++){
             cout << " ";
             arr[i][j].displayState();
             cout << " ";
