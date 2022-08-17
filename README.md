@@ -30,7 +30,22 @@ obj** arr = new obj*[10]   👍✔
 The problem with the first is that you are creating a pointer to 10 objs but those objs in turn can't hold more than one thing so you are just creating a 1d array.</br>
 The second statement works because you are creating a pointer to pointer which in turn can point to other objs.</br>
 
+Just Updated 🔥🔥
+>So I have been working on the wave collape so far I have the program randomly chose a value and location. Now I think my objective is to have it also keep state of each 
+Node and what possible values it can be and to update the nodes around it. (ps. I also added ways to display the map i.e displayMap() no biggie 🤷‍♂️)
+```
+void Map::WaveCollapse(){
+    int rand_row = rand()%(row-1) + 1;
+    int rand_col = rand()%(col-1) + 1;
+    int rand_value = rand()%(value+1);
+    
+    arr[rand_row][rand_col].value =  rand_value;
 
+    cout << "rand_row: " << rand_row << endl;
+    cout << "rand_col: " << rand_col << endl;
+    cout << "rand_value: " << rand_value << endl;
+}
+```
 
 </br>
 </br>

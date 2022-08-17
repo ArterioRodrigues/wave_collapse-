@@ -18,7 +18,9 @@ class Node {
         Node* North_West;
         
         int id;    
-        int Value;    
+        int value;    
+
+        int* state; 
         friend std::ostream&  operator<<(std::ostream& os, const Node& node);        
 };
 
