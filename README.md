@@ -62,6 +62,7 @@ When I started working on the wave collaspe i realized their are alot of stuff i
 * a nodes state aka what values it can hold 
 * all possible state - so like a power state
 * way to change the node state and for it to save it
+
 I approache this problem by first trying to make a class for states but it ended up being super over complicated for in my head no reason. I fell back and choose a simplier approach. Frist i gave each node a array of possible states it can be 
 ```
 ...
