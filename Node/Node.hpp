@@ -1,9 +1,13 @@
-#ifndef NODE_H
-#define NODE_H
+
 #include <iostream>
 using namespace std;
+
+#ifndef NODE_H
+#define NODE_H
+
 class Node {
     public:
+        Node();
         Node* North;
         Node* North_East;
         Node* East;
@@ -12,9 +16,9 @@ class Node {
         Node* South_West;
         Node* West;
         Node* North_West;
-
+        int id;    
         int Value;    
-        friend ostream& operator<<(ostream& os, const Node& node);        
+        friend std::ostream&  operator<<(std::ostream& os, const Node& node);        
 };
 
 

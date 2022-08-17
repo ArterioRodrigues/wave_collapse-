@@ -1,11 +1,26 @@
+#ifndef MAP_H
+#define MAP_H
+
 #include "../Node/Node.hpp"
+#include <iostream>
+using namespace std;
 
 class Map{
     public:
-        Map(double row, double col);
-        friend ostream& operator<<(ostream& os, const Map& map);    
-    private:
+        Map(int row, int col, int value = 5);
+        ~Map();
 
-        double row;
-        double col;
-}
+        void displayMap();
+        void actualMap();
+        void connections();
+        friend std::ostream& operator<<(std::ostream& os, const Map& map);    
+    private:
+        Node** arr;
+        int row;
+        int col;
+        int act_row;                
+        int act_col; 
+};
+
+
+#endif
