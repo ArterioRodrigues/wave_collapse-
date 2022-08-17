@@ -16,6 +16,7 @@ class Map{
         
         void displayMap();
         void actualMap();
+        void MapState();
         void connections();
 
         friend std::ostream& operator<<(std::ostream& os, const Map& map);   

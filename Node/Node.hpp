@@ -17,11 +17,21 @@ class Node {
         Node* West;
         Node* North_West;
         
+        void setDefaultState(int value);
+        void setState(int value[] , int size);
+        void displayState();
+        int* getState();
+        int  getStateSize();
+
         int id;    
         int value;    
 
+        friend std::ostream&  operator<<(std::ostream& os, const Node& node);    
+
+    private:
         int* state; 
-        friend std::ostream&  operator<<(std::ostream& os, const Node& node);        
+        int  stateSize;
+            
 };
 
 

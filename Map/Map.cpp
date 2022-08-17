@@ -22,6 +22,10 @@ Map::Map(int row, int col, int value){
             arr[i][j].South_West   = &arr[i+1][j-1];      
             arr[i][j].West         = &arr[i][j-1];
             arr[i][j].North_West   = &arr[i-1][j-1];      
+            
+            
+            arr[i][j].setDefaultState(value);
+            arr[i][j].displayState();
         }
     }
 
@@ -79,6 +83,19 @@ void Map::connections(){
         for(int j = 1; j < col; j++){
             cout << arr[i][j];
         }
+    }
+}
+
+void Map::MapState(){
+    for(int i = 0; i < act_row; i++){
+        cout << "[";
+        for(int j = 0; j < act_col; j++){
+            cout << " ";
+            arr[i][j].displayState();
+            cout << " ";
+        }
+        cout << "]"<< endl;
+        
     }
 }
 ostream& operator<<(ostream& os, const Map& map);

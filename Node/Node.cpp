@@ -11,8 +11,36 @@ Node::Node(){
     North_West = nullptr;
 
     value = 0;
+
     static int _id = 0;  
     id = _id++;
+}
+void Node::setDefaultState(int value){
+   if(value > 0){
+        state = new int[value];
+        stateSize = value;
+        for(int i = 0; i < value; i++)
+            state[i] = i+1;
+    } 
+}
+void Node::setState(int value[] , int size){
+    if(size > 0){
+        state = new int[size];
+        stateSize = size;
+        for(int i = 0; i < size; i++)
+            state[i] = value[i];
+    }
+}
+
+void Node::displayState(){
+    cout << "{ ";
+    for(int i = 0; i < stateSize; i++)
+        cout << state[i] << " ";
+    cout << "}";
+}
+
+int* Node::getState(){
+    return state;
 }
 
 ostream& operator<<(ostream& os, const Node& node){

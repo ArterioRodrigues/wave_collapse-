@@ -20,13 +20,16 @@ int main(){
     
     map.WaveCollapse();
     map.actualMap();
+    map.MapState();
+    
+    map.WaveCollapse();
+    map.actualMap();
+    map.MapState();
 
     map.WaveCollapse();
     map.actualMap();
-
-    map.WaveCollapse();
-    map.actualMap();
-
+    map.MapState();
+    
     //map.displayMap();
     //map.connections();
     return 0;
