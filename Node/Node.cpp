@@ -37,6 +37,7 @@ void Node::setDefaultState(int value){
             state[i] = i+1;
     } 
 }
+
 void Node::setState(int value[] , int size){
     if(size > 0){
         state = new int[size];

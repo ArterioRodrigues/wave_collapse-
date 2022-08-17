@@ -15,20 +15,19 @@ string operator*(const string& s, unsigned int n) {
 int main(){
 
     Map map(2,2);
-    
-    map.actualMap();
-    
-    map.WaveCollapse();
-    map.actualMap();
     map.MapState();
     
-    map.WaveCollapse();
-    map.actualMap();
-    map.MapState();
+    // map.WaveCollapse();
+    // map.actualMap();
+    // map.MapState();
+    
+    // map.WaveCollapse();
+    // map.actualMap();
+    // map.MapState();
 
-    map.WaveCollapse();
-    map.actualMap();
-    map.MapState();
+    // map.WaveCollapse();
+    // map.actualMap();
+    // map.MapState();
     
     //map.displayMap();
     //map.connections();

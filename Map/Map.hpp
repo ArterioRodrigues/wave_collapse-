@@ -2,6 +2,8 @@
 #define MAP_H
 
 #include "../Node/Node.hpp"
+#include <map>
+#include <vector>
 #include <iostream>
 using namespace std;
 
@@ -10,6 +12,7 @@ class Map{
         Map(int row, int col, int value = 3);
         ~Map();
 
+        void setAdamState();
 
         //Will make return memory address to wave collapse part
         void WaveCollapse();
@@ -23,6 +26,10 @@ class Map{
 
         int value; 
     private:
+        map<int , vector<int> > adam_state;
+        map<int , vector<int> >::iterator itr;
+        int num_state;
+
         Node** arr;
         int row;
         int col;

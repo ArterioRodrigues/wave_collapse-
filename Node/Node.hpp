@@ -23,6 +23,7 @@ class Node {
         void setDefaultState(int value);
         void setState(int value[] , int size);
         void displayState();
+        //void updateState(int value);
         int* getState();
         int  getStateSize();
 
@@ -32,6 +33,7 @@ class Node {
         friend std::ostream&  operator<<(std::ostream& os, const Node& node);    
 
     private:
+        
         int* state; 
         int  stateSize;
             

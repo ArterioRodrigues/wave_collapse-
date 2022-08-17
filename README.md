@@ -32,10 +32,10 @@ int  getStateSize();
 ```
 
 2. Map
->The map obj was were some complications arouse. I create a consturctor to make a 2d array based on a user input for size but I was creat in the pointer incorrectly.</br></br>
+>The map obj was were some complications arouse. I create a consturctor to make a 2d array based on a user input for size but I was creat in the pointer incorrectly.</br>
 ```
-obj*  arr  = new obj[10]   👎❌ 
-obj** arr = new obj*[10]   👍✔
+obj*  arr  = new obj[10]   👎 ❌ 
+obj** arr = new obj*[10]   👍 ✔
 ```
 >The problem with the first is that you are creating a pointer to 10 objs but those objs in turn can't hold more than one thing so you are just creating a 1d array.</br>
 The second statement works because you are creating a pointer to pointer which in turn can point to other objs.</br>
@@ -54,6 +54,31 @@ void Map::WaveCollapse(){
     cout << "rand_value: " << rand_value << endl;
 }
 ```
+
+3. State
+>Now here we start to run into problems!!! 😡 
+When I started working on the wave collaspe i realized their are alot of stuff i have to keep track of naming a fee
+* a nodes state aka what values it can hold 
+* all possible state - so like a power state
+* way to change the node state and for it to save it
+I approache this problem by first trying to make a class for states but it ended up being super over complicated for in my head no reason. I fell back and choose a simplier approach. Frist i gave each node a array of possible states it can be 
+```
+...
+int* state;
+...
+```
+
+And aded a map in the Map obj to hold and adam state or state that holds the rules for all states in the map and how each should change.
+
+```
+...
+map<int , vector<int> > adam_state;
+map<int , vector<int> >::iterator itr;
+int num_state;
+...
+```
+
+
 </hr>
 
 ## Just Updated 🔥🔥
