@@ -25,9 +25,7 @@ public:
 >The map obj was were some complications arouse. I create a consturctor to make a 2d array based on a user input for size but I was creat in the pointer incorrectly.</br>
 obj* arr = new obj[10] 👎❌ </br>
 obj** arr = new obj*[10] 👍✔</br>
-
 The problem with the first is that you are creating a pointer to 10 objs but those objs in turn can't hold more than one thing so you are just creating a 1d array.</br>
-
 The second statement works because you are creating a pointer to pointer which in turn can point to other objs.</br>
 
 
