@@ -1,5 +1,6 @@
 
 #include <iostream>
+#include <vector>
 using namespace std;
 
 #ifndef NODE_H
@@ -21,10 +22,10 @@ class Node {
         
         void setSurrondingNodes();
         void setDefaultState(int value);
-        void setState(int value[] , int size);
+        void setState(vector<int> value);
         void displayState();
         //void updateState(int value);
-        int* getState();
+        vector<int> getState();
         int  getStateSize();
 
         int id;    
@@ -34,7 +35,7 @@ class Node {
 
     private:
         
-        int* state; 
+        vector<int> state; 
         int  stateSize;
             
 };

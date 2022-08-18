@@ -17,11 +17,18 @@ Map::Map(int row, int col, int value){
     this->act_row = row+2;
     this->act_col = col+2;
 
-    setAdamState();
-    displayMap();
+    //setAdamState();
 
+    adam_state.insert(pair<int , vector<int> >(1, {1,2}));
+    adam_state.insert(pair<int , vector<int> >(2, {1,2,3}));
+    adam_state.insert(pair<int , vector<int> >(3, {2,3}));
+    num_state = 3;
+    
+    displayMap();
+   
     for(int i = 1; i < row+1; i++){
         for(int j = 1; j < col+1; j++){
+            
             arr[i][j].North        = &arr[i-1][j]; 
             arr[i][j].North_East   = &arr[i-1][j+1];      
             arr[i][j].East         = &arr[i][j+1];
@@ -31,13 +38,13 @@ Map::Map(int row, int col, int value){
             arr[i][j].West         = &arr[i][j-1];
             arr[i][j].North_West   = &arr[i-1][j-1];      
             
-            
             arr[i][j].setDefaultState(this->num_state);
             arr[i][j].setSurrondingNodes();
             
         }
     }
 }
+
 
 Map::~Map(){
     for(int i = 0; i < row ; i++)
@@ -82,38 +89,59 @@ void Map::setAdamState(){
 }
 
 void Map::WaveCollapse(){
+    
     int rand_row = 0;
     int rand_col = 0;
     Node* master;
-
+  
     do{
+        
         rand_row = rand()%(row-1) + 1;
         rand_col = rand()%(col-1) + 1;
         master = &arr[rand_row][rand_col];
     }
     while(master->getStateSize() == 1);
-
+   
     int rand_value = rand()%(master->getStateSize());
     
-    int* state = master->getState();
+    vector<int> state = master->getState();
 
     master->value =  state[rand_value];
-
-    int state_arr[] = {state[rand_value]};
-    master->setState(state_arr , 1);
+    
+    vector<int> state_arr = {state[rand_value]};
+    master->setState(state_arr);
 
     //Need to delete later
     cout << "rand_row: " << rand_row << endl;
     cout << "rand_col: " << rand_col << endl;
     cout << "rand_value: " << rand_value << endl;
     
-    //Update the surronding nodes
-    // for(int i = 0; i < 8 ; i++){
-    //    if(master->sur_Node[i]->value != 0){
-    //         master->sur_Node-;
-    //    }
-    // }
-   
+    bool check_value = false;
+    int counter = -1;
+
+    for(int i = 0; i < 8 ; i++){
+       if(master->sur_Node[i]->value != 0){
+            state = master->sur_Node[i]->getState();
+
+            for(int i = 0; i < state.size(); i++){
+                counter++;
+                for(int j = 0; j < adam_state[master->value].size(); j++){
+
+                    if(state[i] == adam_state[master->value][j]){
+                        check_value = true;
+                        break;
+                    }
+                }
+
+                if(!check_value)
+                    state.erase(state.begin() + counter);
+                else
+                    check_value = false;
+            }
+            master->sur_Node[i]->setState(state);
+            counter = -1;
+        }
+    }
 }
 
 void Map::displayMap(){

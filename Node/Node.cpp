@@ -31,20 +31,19 @@ void Node::setSurrondingNodes(){
 
 void Node::setDefaultState(int value){
    if(value > 0){
-        state = new int[value];
         stateSize = value;
         for(int i = 0; i < value; i++)
-            state[i] = i+1;
+            state.push_back(i+1);
     } 
 }
 
-void Node::setState(int value[] , int size){
-    if(size > 0){
-        state = new int[size];
-        stateSize = size;
-        for(int i = 0; i < size; i++)
-            state[i] = value[i];
-    }
+void Node::setState(vector<int> value){
+    
+    state.clear();
+    stateSize = value.size();
+    for(int i = 0; i < value.size(); i++)
+        state.push_back(value[i]);
+    
 }
 
 void Node::displayState(){
@@ -54,7 +53,7 @@ void Node::displayState(){
     cout << "}";
 }
 
-int* Node::getState(){
+vector<int> Node::getState(){
     return state;
 }
 

@@ -13,14 +13,20 @@ string operator*(const string& s, unsigned int n) {
 }
 
 int main(){
+    
+    Map map(10,10);
+    int next;
+    for(int i = 0; i < 10; i++)
+    {
+        system("clear");
 
-    Map map(2,2);
-    map.MapState();
+        map.WaveCollapse();
+        map.displayMap();
+        cin >> next;
+    }
     
-    // map.WaveCollapse();
-    // map.actualMap();
-    // map.MapState();
-    
+
+    // system("clear");
     // map.WaveCollapse();
     // map.actualMap();
     // map.MapState();
@@ -28,7 +34,6 @@ int main(){
     // map.WaveCollapse();
     // map.actualMap();
     // map.MapState();
-    
     //map.displayMap();
     //map.connections();
     return 0;
