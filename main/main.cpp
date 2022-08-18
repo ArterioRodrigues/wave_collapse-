@@ -15,20 +15,18 @@ string operator*(const string& s, unsigned int n) {
 int main(){
     
     Map map(10,10);
-    int next;
-    for(int i = 0; i < 10; i++)
-    {
-        system("clear");
 
+    while(!map.collapsed())
+    {
+      
         map.WaveCollapse();
-        map.displayMap();
-        cin >> next;
+        map.MapState();
     }
     
 
     // system("clear");
     // map.WaveCollapse();
-    // map.actualMap();
+    map.displayMap();
     // map.MapState();
 
     // map.WaveCollapse();

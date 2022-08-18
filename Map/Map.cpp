@@ -188,4 +188,15 @@ void Map::MapState(){
     }
 }
 
+bool Map::collapsed(){
+    for(int i = 1; i < row; i++){
+        for(int j = 1; j < col; j++){
+            if(arr[i][j].getStateSize() != 1)
+                return false;
+        }
+    }
+
+    return true;
+}
+
 ostream& operator<<(ostream& os, const Map& map);

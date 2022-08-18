@@ -22,6 +22,8 @@ class Map{
         void MapState();
         void connections();
 
+        bool collapsed();
+        
         friend std::ostream& operator<<(std::ostream& os, const Map& map);   
 
         int value; 
