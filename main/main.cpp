@@ -18,21 +18,37 @@ int main(){
 
     while(!map.collapsed())
     {
-      
         map.WaveCollapse();
+        cout << endl << endl;
         map.MapState();
+        
     }
-    
-
-    // system("clear");
-    // map.WaveCollapse();
+    cout << endl << endl;
     map.displayMap();
-    // map.MapState();
-
-    // map.WaveCollapse();
-    // map.actualMap();
-    // map.MapState();
-    //map.displayMap();
-    //map.connections();
     return 0;
 }
+
+
+// void test(){
+//     bool check = false;
+//     for(int k= 0; k < 8; k++){
+//         if(master->sur_Node[k]->value != 0){
+//             master_state = adam_state[master->value];
+//             state = master->sur_Node[k]->getState();
+
+//             for(auto i : state){
+//                 for(auto j : master_state){
+//                     if(i == j){
+//                         check = true;
+//                         break;
+//                     }
+//                 }
+//                 if(!check)
+//                     state.erase(state.begin()+i);
+                
+//                 check = false;
+//             }
+//             master->sur_Node[k]->setState(state);
+//         }
+//     }
+// }
