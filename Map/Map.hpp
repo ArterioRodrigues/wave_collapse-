@@ -23,7 +23,7 @@ class Map{
         void connections();
 
         bool collapsed();
-        
+        void handleNode(Node* node);
         friend std::ostream& operator<<(std::ostream& os, const Map& map);   
 
         int value; 

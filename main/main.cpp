@@ -31,24 +31,28 @@ int main(){
 
 // void test(){
 //     bool check = false;
+//     vector<int> master_state;
+//     vector<int> copy_state;
 //     for(int k= 0; k < 8; k++){
-//         if(master->sur_Node[k]->value != 0){
+        
+//         if(master->sur_Node[k]->value != 0 and master->sur_Node[k]->getStateSize() != 1){
 //             master_state = adam_state[master->value];
 //             state = master->sur_Node[k]->getState();
-
-//             for(auto i : state){
-//                 for(auto j : master_state){
-//                     if(i == j){
+        
+//             for(int i = 0; i < state.size(); i++){
+//                 for(int j = 0; j < master_state.size(); j++){
+//                     if(state[i] == master_state[j]){
 //                         check = true;
 //                         break;
 //                     }
 //                 }
-//                 if(!check)
-//                     state.erase(state.begin()+i);
-                
+//                 if(check)
+//                     copy_state.push_back(state[i]);         
 //                 check = false;
 //             }
-//             master->sur_Node[k]->setState(state);
+            
+//             master->sur_Node[k]->setState(copy_state);
+//             copy_state.clear();
 //         }
 //     }
 // }

@@ -90,6 +90,17 @@ void Map::setAdamState(){
     }
 }
 
+void Node::handleNode(Node* node){
+    Node* master = node;
+    vector<int> node_state;
+    for(int k = 0; k < 8; k++){
+        while(node->value != 0){
+            node = node->sur_Node[i];
+            node_state = node->getState();
+        }
+       
+    }
+}
 void Map::WaveCollapse(){
     
     int rand_row = 0;
@@ -118,31 +129,7 @@ void Map::WaveCollapse(){
     cout << "rand_col: " << rand_col << endl;
     cout << "rand_value: " << rand_value << endl;
     
-    bool check = false;
-    vector<int> master_state;
-    vector<int> copy_state;
-    for(int k= 0; k < 8; k++){
-        
-        if(master->sur_Node[k]->value != 0 and master->sur_Node[k]->getStateSize() != 1){
-            master_state = adam_state[master->value];
-            state = master->sur_Node[k]->getState();
-        
-            for(int i = 0; i < state.size(); i++){
-                for(int j = 0; j < master_state.size(); j++){
-                    if(state[i] == master_state[j]){
-                        check = true;
-                        break;
-                    }
-                }
-                if(check)
-                    copy_state.push_back(state[i]);         
-                check = false;
-            }
-            
-            master->sur_Node[k]->setState(copy_state);
-            copy_state.clear();
-        }
-    }
+    handleNode(master);
 }
 
 void Map::displayMap(){
