@@ -63,41 +63,41 @@ They are two parts that I am try to accomplishe with C++. First is an object "*n
 * all possible state - so like a power state
 * way to change the node state and for it to save it
 
-I approache this problem by first trying to make a class for states but it ended up being super over complicated for in my head no reason. I fell back and choose a simplier approach. Frist i gave each node a array of possible states it can be 
-```
-...
-int* state;
-...
-```
-
-And added a map in the Map obj to hold and adam state or state that holds the rules for all states in the map and how each should change.
-
-```
-...
-map<int , vector<int> > adam_state;
-map<int , vector<int> >::iterator itr;
-int num_state;
-...
-```
-
-So far this seem to be a more elegante and simple way than my previous class attempt.
+>   I approache this problem by first trying to make a class for states but it ended up being super over complicated for in my head no reason. I fell back and choose a simplier approach. Frist i gave each node a array of possible states it can be 
+>   ```
+>   ...
+>   int* state;
+>   ...
+>   ```
+>   
+>   And added a map in the Map obj to hold and adam state or state that holds the rules for all states in the map and how each should change.
+>   
+>   ```
+>   ...
+>   map<int , vector<int> > adam_state;
+>   map<int , vector<int> >::iterator itr;
+>   int num_state;
+>   ...
+>   ```
+>   
+>   So far this seem to be a more elegante and simple way than my previous class attempt.
 
 4. Problems
 
-So I have over look a very big problem at this point my program works complete exept for one big problem it only works with a max state of 3. Which is super small. The problem is that as one node state changes the it updates it surronding states.
-
-```
-[{1,2,3} {1,2,3} {1,2,3}]                          [{1,2,3} {1,2,3} {1,2,3}]
-[{1,2,3} {1,2,3} {1,2,3}]                          [{2,3}    {2,3}    {2,3}]  
-[{1,2,3} {1,2,3} {1,2,3}]                          [{2,3}     {3}     {2,3}]  
-[{1,2,3} {1,2,3} {1,2,3}]                          [{2,3}    {2,3}    {2,3}]  
-[{1,2,3} {1,2,3} {1,2,3}]                          [{1,2,3} {1,2,3} {1,2,3}]
-
-```
-
-
-but a glaring oversight is that when a state has more that 3 state then when you change the state of the surrond node you have to in turn also change the state of those node until the *wave* is over.
-
+>   So I have over look a very big problem at this point my program works complete exept for one big problem it only works with a max state of 3. Which is super small. The problem is that as one node state changes the it updates it surronding states.
+>   
+>   ```
+>   [{1,2,3} {1,2,3} {1,2,3}]                          [{1,2,3} {1,2,3} {1,2,3}]
+>   [{1,2,3} {1,2,3} {1,2,3}]                          [{2,3}    {2,3}    {2,3}]  
+>   [{1,2,3} {1,2,3} {1,2,3}]                          [{2,3}     {3}     {2,3}]  
+>   [{1,2,3} {1,2,3} {1,2,3}]                          [{2,3}    {2,3}    {2,3}]  
+>   [{1,2,3} {1,2,3} {1,2,3}]                          [{1,2,3} {1,2,3} {1,2,3}]
+>   
+>   ```
+>   
+>   
+>   but a glaring oversight is that when a state has more that 3 state then when you change the state of the surrond node you have to in turn also change the state of those node until the *wave* is over.
+   
 </hr>
 
 ## Just Updated 🔥🔥
