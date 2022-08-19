@@ -90,43 +90,28 @@ void Map::setAdamState(){
     }
 }
 
+
+
 void Map::handleNode(Node* node){
-    Node* master = node;   
-    Node* sur_node; 
+    Node* master = node;    
     vector<int> node_state;
-   
 
     for(int k = 0; k < 8; k++){
-        while(node->value != 0){
-            node_state = node->getState();
-            node = node->sur_Node[k];
-            if(node->value != 0 and node->getState() == this->adam_state[0]){
-                node->clear_State();
-                for(int l : node_state){
-                    node->add_to_State(this->adam_state[l]);
-                }
-            }
-            
+      
+        node_state = node->getState();
+        node = node->sur_Node[k];
 
-            node_state = node->getState();
-
-            for(auto i : node_state)
-                cout << i << "  ";
-            cout << endl;
-            for(int i = 0; i < 8; i++){
-                sur_node = node->sur_Node[i];
-                if(sur_node->value != 0 and sur_node->getState() == this->adam_state[0]){
-                    sur_node->clear_State();
-                    for(int j : node_state){
-                        sur_node->add_to_State(this->adam_state[j]);
-                    }
-                }
-     
+        if(node->value != 0 and node->getState() == this->adam_state[0])
+        {    
+            node->clear_State();
+            for(int l : node_state){
+                node->add_to_State(this->adam_state[l]);
             }
         }
+    } 
         node = master;
-    }
 }
+
 void Map::WaveCollapse(){
     
     int rand_row = 0;
