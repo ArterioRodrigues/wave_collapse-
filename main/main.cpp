@@ -16,13 +16,25 @@ int main(){
     
     Map map(10,10);
 
-    while(!map.collapsed())
-    {
+    //while(!map.collapsed())
+    //{
         map.WaveCollapse();
         cout << endl << endl;
         map.MapState();
+
+        // map.WaveCollapse();
+        // cout << endl << endl;
+        // map.MapState();
+
+        // map.WaveCollapse();
+        // cout << endl << endl;
+        // map.MapState();
+
+        // map.WaveCollapse();
+        // cout << endl << endl;
+        // map.MapState();
         
-    }
+    //}
     cout << endl << endl;
     map.displayMap();
     return 0;

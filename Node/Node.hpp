@@ -24,6 +24,8 @@ class Node {
         void setDefaultState(int value);
         void setState(vector<int> value);
         void displayState();
+        void add_to_State(vector<int> value);
+        void clear_State();
         //void updateState(int value);
         vector<int> getState();
         int  getStateSize();

@@ -53,6 +53,26 @@ void Node::displayState(){
     cout << "}";
 }
 
+void Node::add_to_State(vector<int> value){
+    bool check = false;
+    for(int i : value){
+        for(int j : state){
+            if(i == j){
+                check = true;
+                break;
+            }
+        }
+        if(!check)
+            state.push_back(i);
+        check = false;
+    }
+    stateSize = state.size();
+}
+
+void Node::clear_State(){
+    state.clear();
+}
+
 vector<int> Node::getState(){
     return state;
 }

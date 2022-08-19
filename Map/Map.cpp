@@ -20,7 +20,7 @@ Map::Map(int row, int col, int value){
     this->act_col = col+2;
 
     
-
+    adam_state.insert(pair<int , vector<int> >(0, {1,2,3,4,5}));
     adam_state.insert(pair<int , vector<int> >(1, {1,2}));
     adam_state.insert(pair<int , vector<int> >(2, {1,2,3}));
     adam_state.insert(pair<int , vector<int> >(3, {2,3,4}));
@@ -90,15 +90,41 @@ void Map::setAdamState(){
     }
 }
 
-void Node::handleNode(Node* node){
-    Node* master = node;
+void Map::handleNode(Node* node){
+    Node* master = node;   
+    Node* sur_node; 
     vector<int> node_state;
+   
+
     for(int k = 0; k < 8; k++){
         while(node->value != 0){
-            node = node->sur_Node[i];
             node_state = node->getState();
+            node = node->sur_Node[k];
+            if(node->value != 0 and node->getState() == this->adam_state[0]){
+                node->clear_State();
+                for(int l : node_state){
+                    node->add_to_State(this->adam_state[l]);
+                }
+            }
+            
+
+            node_state = node->getState();
+
+            for(auto i : node_state)
+                cout << i << "  ";
+            cout << endl;
+            for(int i = 0; i < 8; i++){
+                sur_node = node->sur_Node[i];
+                if(sur_node->value != 0 and sur_node->getState() == this->adam_state[0]){
+                    sur_node->clear_State();
+                    for(int j : node_state){
+                        sur_node->add_to_State(this->adam_state[j]);
+                    }
+                }
+     
+            }
         }
-       
+        node = master;
     }
 }
 void Map::WaveCollapse(){

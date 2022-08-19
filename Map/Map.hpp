@@ -12,8 +12,9 @@ class Map{
         Map(int row, int col, int value = 3);
         ~Map();
 
-        void setAdamState();
-
+        void setAdamState();    
+       
+        void handleNode(Node* node);
         //Will make return memory address to wave collapse part
         void WaveCollapse();
         
@@ -23,7 +24,7 @@ class Map{
         void connections();
 
         bool collapsed();
-        void handleNode(Node* node);
+        
         friend std::ostream& operator<<(std::ostream& os, const Map& map);   
 
         int value; 
