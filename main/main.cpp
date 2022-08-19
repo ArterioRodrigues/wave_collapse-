@@ -36,7 +36,7 @@ int main(){
         
     //}
     // cout << endl << endl;
-    map.displayMap();
+    //map.displayMap();
     return 0;
 }
 
@@ -69,45 +69,45 @@ int main(){
 //     }
 // }
 
-void Map::test(){
-    int posx = 8;
-    int posy = 4;
+// void Map::test(){
+//     int posx = 8;
+//     int posy = 4;
 
-    Node* node = &arr[8][4];
-    bool border = false;
+//     Node* node = &arr[8][4];
+//     bool border = false;
    
-    for(int i = 2; i <= 8; i =i + 2){
-        if(node->value != 0){
-            for(int j = 0; j < 8; j= j+2){
-                for(int k = 0; k < i ; k++){
-                    node = node->sur_Node[j];  
-                    node->value  = 1;    
-                }   
+//     for(int i = 2; i <= 8; i =i + 2){
+//         if(node->value != 0){
+//             for(int j = 0; j < 8; j= j+2){
+//                 for(int k = 0; k < i ; k++){
+//                     node = node->sur_Node[j];  
+//                     node->value  = 1;    
+//                 }   
 
-            } 
-        }
-        else
-        {
-            border = true;
-            break;
-        }
-        posx++;
-        posy--;
-        node = &arr[posx][posy];
-    }
-    actualMap();
+//             } 
+//         }
+//         else
+//         {
+//             border = true;
+//             break;
+//         }
+//         posx++;
+//         posy--;
+//         node = &arr[posx][posy];
+//     }
+//     actualMap();
      
 
-    if(border){
-        for(int i = 8; i <= 8; i =i + 2){
-            for(int j = 0; j < 8; j= j+2){
-                for(int k = 0; k < i ; k++){
-                    node = node->sur_Node[j];  
-                    node->value  = 1;    
-                } 
-            } 
-        } 
-        posy--;
-        node = &arr[posx][posy];
-    }
-}
+//     if(border){
+//         for(int i = 8; i <= 8; i =i + 2){
+//             for(int j = 0; j < 8; j= j+2){
+//                 for(int k = 0; k < i ; k++){
+//                     node = node->sur_Node[j];  
+//                     node->value  = 1;    
+//                 } 
+//             } 
+//         } 
+//         posy--;
+//         node = &arr[posx][posy];
+//     }
+// }
