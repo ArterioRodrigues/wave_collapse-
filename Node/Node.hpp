@@ -1,6 +1,7 @@
 
 #include <iostream>
 #include <vector>
+
 using namespace std;
 
 #ifndef NODE_H
@@ -26,6 +27,8 @@ class Node {
         void displayState();
         void add_to_State(vector<int> value);
         void clear_State();
+
+        void handleNode(Node* node);
         //void updateState(int value);
         vector<int> getState();
         int  getStateSize();

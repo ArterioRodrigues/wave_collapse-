@@ -97,16 +97,16 @@ They are two parts that I am try to accomplishe with C++. First is an object "*n
 >   
 >   
 >   but a glaring oversight is that when a state has more that 3 state then when you change the state of the surrond node you have to in turn also change the state of those node until the *wave* is over.
+
+>My idea is to have a sprial pattern of traversal for the nodes and update the states as they go. But it proving difficult i have spent 3 days on it cant seem to get it to work completely.
+
+>My next idea might be to try to simplfy and make a it just traverse one node at a time form the begin to the end and update the state based on it surronding states. This way seems simple and easeir to implement just alot more slower than my other method.
    
 </hr>
 
 ## Just Updated 🔥🔥
 
-Since i started the wave collapse function i realized i need alot more stuff to make my life easier. so heres a list of what I added: 
-
-* an array node to hold all surrond nodes
-* master node to hold current node
-* various node class function to set the surronding nodes 
+I have worked on the traversal and the made node more accesable;
 
 
 </br>
@@ -114,5 +114,5 @@ Since i started the wave collapse function i realized i need alot more stuff to 
 </hr>
 
 # Where to next
-- Enabling indiviaul edits to node.
-- Starting a wave collapse.
+- making traversal method for the array
+- making a way to change a node states based on it surrondings.

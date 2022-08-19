@@ -15,12 +15,12 @@ string operator*(const string& s, unsigned int n) {
 int main(){
     
     Map map(10,10);
-
+    map.test();
     //while(!map.collapsed())
     //{
-        map.WaveCollapse();
-        cout << endl << endl;
-        map.MapState();
+        // map.WaveCollapse();
+        // cout << endl << endl;
+        // map.MapState();
 
         // map.WaveCollapse();
         // cout << endl << endl;
@@ -35,7 +35,7 @@ int main(){
         // map.MapState();
         
     //}
-    cout << endl << endl;
+    // cout << endl << endl;
     map.displayMap();
     return 0;
 }

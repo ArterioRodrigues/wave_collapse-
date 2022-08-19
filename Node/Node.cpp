@@ -92,37 +92,37 @@ ostream& operator<<(ostream& os, const Node& node){
     else
         os << "NULL" << endl;
     os << "North_East    : " << node.North_East  << "   " << "Value  : ";
-    if(node.North != nullptr)
+    if(node.North_East != nullptr)
         os << node.North_East->value << "   " << "id : " << node.North_East->id  << endl ;
     else
         os << "NULL" << endl;
     os << "East          : " << node.East        << "   " << "Value  : ";
-    if(node.North != nullptr)
+    if(node.East != nullptr)
         os << node.East->value       << "   " << "id : " << node.East->id        << endl ;
     else
         os << "NULL" << endl; 
     os << "South_East    : " << node.South_East  << "   " << "Value  : ";
-    if(node.North != nullptr)
+    if(node.South_East != nullptr)
         os << node.South_East->value << "   " << "id : " << node.South_East->id  << endl ;
     else
         os << "NULL" << endl; 
     os << "South         : " << node.South       << "   " << "Value  : ";
-    if(node.North != nullptr)
+    if(node.South != nullptr)
         os << node.South->value      << "   " << "id : " << node.South->id       << endl ;
     else
         os << "NULL" << endl;
     os << "South_West    : " << node.South_West  << "   " << "Value  : ";
-    if(node.North != nullptr)
+    if(node.South_West != nullptr)
         os << node.South_West->value << "   " << "id : " << node.South_West->id  << endl ;
     else
         os << "NULL" << endl;
     os << "West          : " << node.West        << "   " << "Value  : ";
-    if(node.North != nullptr)
+    if(node.West != nullptr)
         os << node.West->value       << "   " << "id : " << node.West->id        << endl ;
     else
         os << "NULL" << endl;
     os << "North_West    : " << node.North_West  << "   " << "Value  : ";
-    if(node.North != nullptr)
+    if(node.North_West != nullptr)
         os << node.North_West->value << "   " << "id : " << node.North_West->id  << endl ;
     else
         os << "NULL" << endl;

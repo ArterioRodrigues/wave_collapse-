@@ -28,6 +28,8 @@ class Map{
         friend std::ostream& operator<<(std::ostream& os, const Map& map);   
 
         int value; 
+         
+        void test();
     private:
         map<int , vector<int> > adam_state;
         map<int , vector<int> >::iterator itr;

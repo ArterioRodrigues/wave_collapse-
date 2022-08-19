@@ -10,7 +10,7 @@ Map::Map(int row, int col, int value){
         arr[i] = new Node[col+2];
         for(int j = 0; j < col+2; j++){
             if((i > 0 and i < row+1) and (j > 0 and j < col+1) )
-                arr[i][j].value = 5; 
+                arr[i][j].value = (i*10)+j; 
         }   
     }
 
@@ -31,17 +31,32 @@ Map::Map(int row, int col, int value){
     displayMap();
   
    
-    for(int i = 1; i < row+1; i++){
-        for(int j = 1; j < col+1; j++){
+    for(int i = 0; i < row+2; i++){
+        for(int j = 0; j < col+2; j++){
             
-            arr[i][j].North        = &arr[i-1][j]; 
-            arr[i][j].North_East   = &arr[i-1][j+1];      
-            arr[i][j].East         = &arr[i][j+1];
-            arr[i][j].South_East   = &arr[i+1][j+1];      
-            arr[i][j].South        = &arr[i+1][j]; 
-            arr[i][j].South_West   = &arr[i+1][j-1];      
-            arr[i][j].West         = &arr[i][j-1];
-            arr[i][j].North_West   = &arr[i-1][j-1];      
+            if(-1 < (i-1) and (i-1) < act_row)
+                arr[i][j].North        = &arr[i-1][j]; 
+
+            if(-1 < (i-1) and (i-1) < act_row and -1 < (j+1) and (j+1) < act_col)
+                arr[i][j].North_East   = &arr[i-1][j+1];    
+
+            if( -1 < (j+1) and (j+1) < act_col)
+                arr[i][j].East         = &arr[i][j+1];
+
+            if(-1 < (i+1) and (i+1) < act_row and -1 < (j+1) and (j+1) < act_col)
+                arr[i][j].South_East   = &arr[i+1][j+1];
+
+            if(-1 < (i+1) and (i+1) < act_row)
+                arr[i][j].South        = &arr[i+1][j]; 
+
+            if(-1 < (i+1) and (i+1) < act_row and -1 < (j-1) and (j-1) < act_col)
+                arr[i][j].South_West   = &arr[i+1][j-1];  
+
+            if( -1 < (j-1) and (j-1) < act_col)
+                arr[i][j].West         = &arr[i][j-1];
+
+            if(-1 < (i-1) and (i-1) < act_row and -1 < (j-1) and (j-1) < act_col)
+                arr[i][j].North_West   = &arr[i-1][j-1];      
             
             arr[i][j].setDefaultState(this->num_state);
             arr[i][j].setSurrondingNodes();
@@ -89,8 +104,6 @@ void Map::setAdamState(){
         cout << "}" << endl;
     }
 }
-
-
 
 void Map::handleNode(Node* node){
     Node* master = node;    
@@ -198,4 +211,14 @@ bool Map::collapsed(){
     return true;
 }
 
-ostream& operator<<(ostream& os, const Map& map);
+
+void Map::test(){
+    int posx = 8;
+    int posy = 4;
+    int wave = 2;
+
+    Node* node = &arr[8][4];
+    bool border = false;
+   
+    while(node->value != 0)
+}
