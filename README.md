@@ -86,11 +86,14 @@ So far this seem to be a more elegante and simple way than my previous class att
 
 So I have over look a very big problem at this point my program works complete exept for one big problem it only works with a max state of 3. Which is super small. The problem is that as one node state changes the it updates it surronding states.
 
+<p>
 [{1,2,3} {1,2,3} {1,2,3}]                                   [{1,2,3} {1,2,3} {1,2,3}]           </br>
 [{1,2,3} {1,2,3} {1,2,3}]     <span style="color:blue">     [{2,3}    {2,3}    {2,3}]  </span>  </br>
 [{1,2,3} {1,2,3} {1,2,3}]     <span style="color:blue">     [{2,3}     {3}     {2,3}]  </span>  </br>
 [{1,2,3} {1,2,3} {1,2,3}]     <span style="color:blue">     [{2,3}    {2,3}    {2,3}]  </span>  </br>
 [{1,2,3} {1,2,3} {1,2,3}]                                   [{1,2,3} {1,2,3} {1,2,3}]           </br>
+
+</p>
 
 
 but a glaring oversight is that when a state has more that 3 state then when you change the state of the surrond node you have to in turn also change the state of those node until the *wave* is over.
