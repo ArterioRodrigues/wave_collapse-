@@ -14,7 +14,7 @@ string operator*(const string& s, unsigned int n) {
 
 int main(){
     
-    Map map(10,10);
+    Map map(16,16);
     map.test();
     //while(!map.collapsed())
     //{
