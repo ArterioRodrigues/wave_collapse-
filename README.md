@@ -12,8 +12,9 @@ anti state. State beging the possible values the node could be and the anti stat
 getters and setters for the private values such as the node state and anti_state. 
 
 </br>
+
 ```
- public:
+   public:
         Node* North;
         Node* North_East;
         Node* East;
@@ -24,7 +25,8 @@ getters and setters for the private values such as the node state and anti_state
         Node** sur_Node;
 ```
 
-  A difference form my original appoarch is that I added 2 new functions "*checkState()*" and "*updateState(Node* node)*". Checkstate is used to update the sur_Nodes states base on the change of the current node for example if the node became a 3 then the surrond state should be a {2,3,4} and their anti_states a {1,5}. 
+  A difference form my original appoarch is that I added 2 new functions "*checkState()*" and "*updateState(Node* node)*". Checkstate is used to update the sur_Nodes
+states base on the change of the current node for example if the node became a 3 then the surrond state should be a {2,3,4} and their anti_states a {1,5}. 
 The differnce of this approach was that i was try to have to map change the sur_node state but it is alot easier to do it locally.
 
 </br>
