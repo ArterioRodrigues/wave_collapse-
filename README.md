@@ -6,7 +6,7 @@ This is a project I wanted to try because I am interested in computers randomly 
 The C++ is finally finished. It took a while I had to take a break and come back because my previous approach was not working.(or rather it was to overcomplicated) so i 
 I slimed down my appoarch. I still have the same 2 classes "*Node*" and "*Map*". 
 
-1. Node
+### Node
  The node class is node that points to all co-ordinates that are other node and a master node called "*sur_Node*" that point to the other 8 nodes. and has a state and 
 anti state. State beging the possible values the node could be and the anti state being what it can't be. The node also have alot of helper function the standard 
 getters and setters for the private values such as the node state and anti_state. 
@@ -31,7 +31,7 @@ The differnce of this approach was that i was try to have to map change the sur_
 
 </br>
 
-2. Map
+### Map
   The map obj was were some complications arouse. I create a consturctor to make a 2d array based on a user input for size but I was creat in the pointer incorrectly.</br>
   ```
   obj*  arr  = new obj[10]   👎 ❌ 
