@@ -7,7 +7,9 @@ The C++ is finally finished. It took a while I had to take a break and come back
 I slimed down my appoarch. I still have the same 2 classes "*Node*" and "*Map*". 
 
 1. Node
-The node class is node that points to all co-ordinates that are other node and a master node called "*sur_Node*" that point to the other 8 nodes. and has a state and anti state. State beging the possible values the node could be and the anti state being what it can't be. The node also have alot of helper function the standard getters and setters for the private values such as the node state and anti_state. 
+ The node class is node that points to all co-ordinates that are other node and a master node called "*sur_Node*" that point to the other 8 nodes. and has a state and 
+anti state. State beging the possible values the node could be and the anti state being what it can't be. The node also have alot of helper function the standard 
+getters and setters for the private values such as the node state and anti_state. 
 
 </br>
 ```
