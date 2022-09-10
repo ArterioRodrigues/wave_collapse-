@@ -7,7 +7,7 @@ int main(){
 
     vector<int> state = {1,2,3,4,5};
 
-    Map map(20, 20, state);
+    Map map(50, 50, state);
     map.wave_collapse();
     map.save_map();
   

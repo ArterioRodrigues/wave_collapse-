@@ -39,5 +39,5 @@ while 1:
             x_offset = 0
             y_offset += img.size[1]
         
-        
+print("Map generated!")    
 new_im.save('test.jpg')
