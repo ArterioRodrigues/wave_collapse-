@@ -17,7 +17,7 @@ getters and setters for the private values such as the node state and anti_state
         Node* North;
         Node* North_East;
         Node* East;
-        ...
+        
         Node* West;
         Node* North_West;
 
