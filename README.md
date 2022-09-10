@@ -40,6 +40,7 @@ The differnce of this approach was that i was try to have to map change the sur_
   The map is alot simpler all the hard work is done in the node class (aka the updating of the surronding nodes). The only job the map has is to create the 2d map and start the wave collapse. The wave is now inside of a while loop -> when a position is choosen then the wave start and it update around the node base on that change.
   
 </br>
+
 ```
    [{1,2,3} {1,2,3} {1,2,3}]                          [{1,2,3} {1,2,3} {1,2,3}]
    [{1,2,3} {1,2,3} {1,2,3}]                          [{2,3}    {2,3}    {2,3}]  
