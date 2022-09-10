@@ -106,7 +106,7 @@ They are two parts that I am try to accomplishe with C++. First is an object "*n
 
 ## Just Updated 🔥🔥
 
-I have worked on the traversal and the made node more accesable;
+Ok thsi is it from me for a while this project has taken a bit out of me working for 3 day straight i cant get it to work and it sucks because i feel like i am almost their. But ill take a break for a little bit and come back to it.
 
 
 </br>
