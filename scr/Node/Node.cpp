@@ -1,5 +1,6 @@
 #include "Node.hpp"
 
+
 Node::Node(){
     North = nullptr;
     North_East = nullptr;
@@ -98,7 +99,7 @@ void Node::updateState(Node* node){
     for(int i = 0; i < state.size(); i++){
         for(int j = 0; j < adam_state[state[i]][0].size(); j++){
             
-            if (!(std::count(new_state.begin(), new_state.end(), adam_state[state[i]][0][j]))) {
+            if (!(count(new_state.begin(), new_state.end(), adam_state[state[i]][0][j]))) {
                 new_state.push_back(adam_state[state[i]][0][j]);
             }
            
@@ -109,7 +110,7 @@ void Node::updateState(Node* node){
 
     for(int i = 0; i < adam_state[0][0].size(); i++){
 
-        if (!(std::count(new_state.begin(), new_state.end(), adam_state[0][0][i]))) {
+        if (!(count(new_state.begin(), new_state.end(), adam_state[0][0][i]))) {
             anti_state.push_back(adam_state[0][0][i]);
         }
     }
