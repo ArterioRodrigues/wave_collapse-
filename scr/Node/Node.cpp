@@ -123,8 +123,10 @@ bool Node::checkState(){
    
     for(int k = 0; k < 8; k++){
         if(sur_Node[k] != nullptr){
-            check = sur_Node[k]->removeState(anti_state);
-            sur_Node[k]->updateState(sur_Node[k]);
+            if(anti_state.size() != 0)
+                check = sur_Node[k]->removeState(anti_state);
+            if(check)
+                sur_Node[k]->updateState(sur_Node[k]);
         }
     }
     

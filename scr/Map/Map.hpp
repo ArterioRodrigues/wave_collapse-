@@ -7,7 +7,9 @@
 #include <random>
 #include <iostream>
 #include <fstream>
-
+#include <cstdlib>
+#include <ctime>
+#include <cmath>
 using namespace std;
 
 class Map{

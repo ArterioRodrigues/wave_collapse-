@@ -40,4 +40,4 @@ while 1:
             y_offset += img.size[1]
         
 print("Map generated!")    
-new_im.save('test.jpg')
+new_im.save('map.jpg')

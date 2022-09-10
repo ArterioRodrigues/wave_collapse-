@@ -75,41 +75,120 @@ void Map::wave_collapse(){
     bool wave = true;
     bool check = false;
 
+    int size = adam_state[0][0].size();
+
     int rand_state;
     int rand_row;
     int rand_col;
+    int rand_pos;
+    
+    int row_beg;
+    int col_beg;
+    int row_end;
+    int col_end;
 
-    while(!collapsed()){    
-        rand_row = rand()%row;
-        rand_col = rand()%col;
+    srand((unsigned int)time(NULL));
+
+    while(tracker.size() != 0){    
         
-        while(arr[rand_row][rand_col].getStateSize() == 1){
-            rand_row = rand()%row;
-            rand_col = rand()%col;
-        }
+        rand_pos = rand() % tracker.size();
 
+        rand_row = floor(tracker[rand_pos]/row);
+        rand_col = tracker[rand_pos]%col;
+       
+        system("clear");
+        cout << tracker.size() << endl;
+       
+        tracker.erase(tracker.begin() + rand_pos);
+
+        
         state = arr[rand_row][rand_col].getState();
-        rand_state = (rand() % arr[rand_row][rand_col].getStateSize()); 
+        rand_state = rand() % state.size(); 
 
         anti_state = adam_state[state[rand_state]][1];
 
         arr[rand_row][rand_col].setState({state[rand_state]});
         arr[rand_row][rand_col].setAntiState(anti_state);
+        arr[rand_row][rand_col].checkState();
+         
+        
 
         while(wave){
             wave = false;
 
-                for(int i = 0; i < row; i++){
-                    for(int j = 0; j < col; j++){
-                        check = arr[i][j].checkState();
+            for(int i = rand_row-6 ; i < rand_row+6; i++){
+                for(int j = rand_col-6; j < rand_col+6; j++){
+                        if (( 0 <= i and i < row) and (0 <= j and j < col)){
+                           check = arr[i][j].checkState();
+                        }
+                        else{
+                          
+                            row_beg = i;
+                            col_beg = j;
+
+                            if(i < 0)
+                                row_beg = 0;
+                            else if( i >= row)
+                                row_beg = row-1;
+                            
+                            
+                            if(j < 0)
+                                col_beg = 0;
+                            else if(j >= col)
+                                col_beg = col-1;
+                           
+
+                            check = arr[row_beg][col_beg].checkState();
+                        }
+                            
+                               
+                        
                         if(check)
                             wave = check;
                     }
                 }
-        }
+            }
+                // if(! (rand_row - adam_state[0][0].size()-1) < 0)
+                //     row_beg = rand_row-adam_state[0][0].size() -1;
+                // else
+                //     row_beg = 0;
+
+                // if(!(rand_col - adam_state[0][0].size()-1) < 0)
+                //     col_beg = rand_col - adam_state[0][0].size() -1;
+                // else    
+                //     col_beg = 0;
+
+                // if(!(rand_row+adam_state[0][0].size()+1) > row)
+                //     row_end = rand_row + adam_state[0][0].size() +1;
+                // else
+                //     row_end = row;
+
+                // if(!(rand_col+adam_state[0][0].size()+1) > col)
+                //     col_end = rand_col + adam_state[0][0].size() +1;
+                // else
+                //     col_end = col;
+
+                // for(int i = row_beg ;i < row_end; i++){
+                //     for(int j = col_beg; j < col_end; j++){
+                //         check = arr[i][j].checkState();
+                //         if(check)
+                //             wave = check;
+                //     }
+                // }
+
+                // for(int i = 0; i < row; i++){
+                //     for(int j = 0; j < col; j++){
+                //         check = arr[i][j].checkState();
+                //         if(check)
+                //             wave = check;
+                //     }
+                // }
+        //}
+
         wave = true;
         check = false;
     }
+
 }
 
 void Map::displayMap(){
