@@ -26,6 +26,8 @@ class Map{
         map<int , vector<vector<int>> >::iterator itr;
   
         Node** arr;
+
+        vector<int> tracker;
         int row;
         int col;
 };

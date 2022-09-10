@@ -1,17 +1,17 @@
 #include "Map.hpp"
 
 Map::Map(int row, int col, vector<int> state){
-
+    int k = 0;
     arr = new Node*[row];
     this->row = row;
     this->col = col;
 
     adam_state.insert(pair<int , vector<vector<int>> >(0, {{1,2,3,4,5}, {}}));
-    adam_state.insert(pair<int , vector<vector<int>> >(1, {{1,5},   {3,2,4}}));
-    adam_state.insert(pair<int , vector<vector<int>> >(2, {{2,3,4}, {1,5}}));
-    adam_state.insert(pair<int , vector<vector<int>> >(3, {{3,5,2}, {1,4}}));
-    adam_state.insert(pair<int , vector<vector<int>> >(4, {{2,4},   {1,5,3}}));
-    adam_state.insert(pair<int , vector<vector<int>> >(5, {{1,5,3}, {2,4}}));
+    adam_state.insert(pair<int , vector<vector<int>> >(1, {{1,2},   {3,4,5}}));
+    adam_state.insert(pair<int , vector<vector<int>> >(2, {{1,2,3}, {4,5}}));
+    adam_state.insert(pair<int , vector<vector<int>> >(3, {{2,3,4}, {1,5}}));
+    adam_state.insert(pair<int , vector<vector<int>> >(4, {{3,4,5},   {1,2}}));
+    adam_state.insert(pair<int , vector<vector<int>> >(5, {{4,5}, {1,2,3}}));
 
     for(int i = 0; i < row; i++){
         arr[i] = new Node[col];
@@ -19,7 +19,8 @@ Map::Map(int row, int col, vector<int> state){
 
     for(int i = 0; i< row; i++){
         for(int j = 0; j < col; j++){
-             if(-1 < (i-1) and (i-1) < row)
+            tracker.push_back(k);
+            if(-1 < (i-1) and (i-1) < row)
                 arr[i][j].North        = &arr[i-1][j]; 
 
             if(-1 < (i-1) and (i-1) < row and -1 < (j+1) and (j+1) < col)
@@ -46,7 +47,9 @@ Map::Map(int row, int col, vector<int> state){
             arr[i][j].setState(state);
             arr[i][j].setSurrondingNodes();
             arr[i][j].setAdamState(adam_state);
+            k++;
         }
+
     }
 
    
@@ -134,7 +137,7 @@ void Map::displayAntiMap(){
 }
 
 void Map::save_map(){
-    ofstream File("wave_collapse.txt");
+    ofstream File("../scr_python/data/wave_collapse.txt");
     vector<int> state;
 
     for(int i = 0; i < row; i++){
@@ -144,7 +147,8 @@ void Map::save_map(){
             for(int k = 0; k < 1; k++){
                 File << state[0] << "  ";
             }
-            File << endl;
+            
         }
+        File << endl;
     }
 }
