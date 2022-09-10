@@ -57,11 +57,11 @@ The differnce of this approach was that i was try to have to map change the sur_
 ### Example 
   This is an example of a generated map. It was generated with 50 x 50 nodes (2500 nodes) and the pixels imgs was added with python. The rules are set as below;
 
-<img src= "./scr_python/data/1.png">
-<img src= "./scr_python/data/2.png">
-<img src= "./scr_python/data/3.png">
-<img src= "./scr_python/data/4.png">
-<img src= "./scr_python/data/5.png">
+<img src= "./scr_python/data/1.png" style = "display: inline-block; padding: 20px;">
+<img src= "./scr_python/data/2.png" style = "display: inline-block; padding: 20px;">
+<img src= "./scr_python/data/3.png" style = "display: inline-block; padding: 20px;">
+<img src= "./scr_python/data/4.png" style = "display: inline-block; padding: 20px;">
+<img src= "./scr_python/data/5.png" style = "display: inline-block; padding: 20px;">
 
 <img src = "./scr_python/data/50x50.jpg"/>
 
