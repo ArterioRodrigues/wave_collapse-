@@ -132,3 +132,19 @@ void Map::displayAntiMap(){
         cout << endl;
     }
 }
+
+void Map::save_map(){
+    ofstream File("wave_collapse.txt");
+    vector<int> state;
+
+    for(int i = 0; i < row; i++){
+        for(int j = 0; j < col; j++){
+            state = arr[i][j].getState();
+
+            for(int k = 0; k < 1; k++){
+                File << state[0] << "  ";
+            }
+            File << endl;
+        }
+    }
+}

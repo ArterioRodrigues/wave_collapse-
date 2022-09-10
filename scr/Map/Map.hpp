@@ -6,6 +6,7 @@
 #include <vector>
 #include <random>
 #include <iostream>
+#include <fstream>
 using namespace std;
 
 class Map{
@@ -16,6 +17,9 @@ class Map{
         void wave_collapse();
         void displayMap();
         void displayAntiMap();
+
+        void save_map();
+
     private:
         map<int , vector<vector<int>> > adam_state;
         map<int , vector<vector<int>> >::iterator itr;

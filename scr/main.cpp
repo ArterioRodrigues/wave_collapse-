@@ -10,6 +10,7 @@ int main(){
     Map map(10, 10, state);
     map.wave_collapse();
     map.displayMap();
+    map.save_map();
   
     return 0;
 }
