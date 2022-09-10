@@ -70,5 +70,7 @@ The differnce of this approach was that i was try to have to map change the sur_
 
 <img src = "./scr_python/data/50x50.jpg"/>
 
+<img src = "./scr_python/data/test100.jpg"/>
+
 # Where to next
 - html css and java.

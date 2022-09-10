@@ -12,7 +12,7 @@ int main(){
 
     vector<int> state = {1,2,3,4,5};
 
-    Map map(1000, 1000, state);
+    Map map(10, 10, state);
 
     time(&begin);
     map.wave_collapse();
