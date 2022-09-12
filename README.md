@@ -2,117 +2,75 @@
 
 This is a project I wanted to try because I am interested in computers randomly performing task for us. The basic idea is you give the computer a 2d map and it will make a randow tile layout. The themes of this project so far are OPP, Pointers and C++.
 
-## Step - 1 😊 C++ 
-They are two parts that I am try to accomplishe with C++. First is an object "*node*" that will point in all directions to it neighbours. Next is a "*map*" that will hold all a 2d representation of the nodes and start the **wave collapse** randomly.
+## Step - 1 😊 C++ / FINISHED 
+The C++ is finally finished. It took a while I had to take a break and come back because my previous approach was not working.(or rather it was to overcomplicated) so i 
+I slimed down my appoarch. I still have the same 2 classes "*Node*" and "*Map*". 
 
-1. Node 
->   The node was pretty basic to make so far i dont think it will need to be update simple it is a class the points to other obj of the same class with a value. 
->   
->   ```
->   public:
->       Node();
->       Node* North;
->       Node* North_East;
->       ...
->       Node* West;
->       Node* North_West;
->       
->       int id;    
->       int Value;           
->   ```
->   
->   **Node v1.1** update. I added a state to each node as the wave function require me to know what can be change and what affects it. So i add new functions to check state update state and change state.
->   ```
->   void setDefaultState(int value);
->   void setState(int value[] , int size);
->   void displayState();
->   int* getState();
->   int  getStateSize();
->   
->   ```
+### Node
+ The node class is node that points to all co-ordinates that are other node and a master node called "*sur_Node*" that point to the other 8 nodes. and has a state and 
+anti state. State beging the possible values the node could be and the anti state being what it can't be. The node also have alot of helper function the standard 
+getters and setters for the private values such as the node state and anti_state. 
 
-2. Map
->   The map obj was were some complications arouse. I create a consturctor to make a 2d array based on a user input for size but I was creat in the pointer incorrectly.</br>
->   ```
->   obj*  arr  = new obj[10]   👎 ❌ 
->   obj** arr = new obj*[10]   👍 ✔
->   ```
->   The problem with the first is that you are creating a pointer to 10 objs but those objs in turn can't hold more than one thing so you are just creating a 1d array.</br>
->   The second statement works because you are creating a pointer to pointer which in turn can point to other objs.</br></br>
->   
->   **Map v1.1** So I have been working on the wave collape so far I have the program randomly chose a value and location. Now I think my objective is to have it also keep state of each 
->   Node and what possible values it can be and to update the nodes around it. (ps. I also added ways to display the map i.e displayMap() no biggie 🤷‍♂️)
->   ```
->   void Map::WaveCollapse(){
->       int rand_row = rand()%(row-1) + 1;
->       int rand_col = rand()%(col-1) + 1;
->       int rand_value = rand()%(value+1);
->       
->       arr[rand_row][rand_col].value =  rand_value;
->   
->       cout << "rand_row: " << rand_row << endl;
->       cout << "rand_col: " << rand_col << endl;
->       cout << "rand_value: " << rand_value << endl;
->   }
->   ```
+</br>
 
-3. State
->   Now here we start to run into problems!!! 😡 
->   When I started working on the wave collaspe i realized their are alot of stuff i have to keep track of naming a fee
-* a nodes state aka what values it can hold 
-* all possible state - so like a power state
-* way to change the node state and for it to save it
+```
+   public:
+        Node* North;
+        Node* North_East;
+        Node* East;
+        
+        Node* West;
+        Node* North_West;
 
->   I approache this problem by first trying to make a class for states but it ended up being super over complicated for in my head no reason. I fell back and choose a simplier approach. Frist i gave each node a array of possible states it can be 
->   ```
->   ...
->   int* state;
->   ...
->   ```
->   
->   And added a map in the Map obj to hold and adam state or state that holds the rules for all states in the map and how each should change.
->   
->   ```
->   ...
->   map<int , vector<int> > adam_state;
->   map<int , vector<int> >::iterator itr;
->   int num_state;
->   ...
->   ```
->   
->   So far this seem to be a more elegante and simple way than my previous class attempt.
+        Node** sur_Node;
+```
 
-4. Problems
+  A difference form my original appoarch is that I added 2 new functions "*checkState()*" and "*updateState(Node* node)*". Checkstate is used to update the sur_Nodes
+states base on the change of the current node for example if the node became a 3 then the surrond state should be a {2,3,4} and their anti_states a {1,5}. 
+The differnce of this approach was that i was try to have to map change the sur_node state but it is alot easier to do it locally.
 
->   So I have over look a very big problem at this point my program works complete exept for one big problem it only works with a max state of 3. Which is super small. The problem is that as one node state changes the it updates it surronding states.
->   
->   ```
->   [{1,2,3} {1,2,3} {1,2,3}]                          [{1,2,3} {1,2,3} {1,2,3}]
->   [{1,2,3} {1,2,3} {1,2,3}]                          [{2,3}    {2,3}    {2,3}]  
->   [{1,2,3} {1,2,3} {1,2,3}]                          [{2,3}     {3}     {2,3}]  
->   [{1,2,3} {1,2,3} {1,2,3}]                          [{2,3}    {2,3}    {2,3}]  
->   [{1,2,3} {1,2,3} {1,2,3}]                          [{1,2,3} {1,2,3} {1,2,3}]
->   
->   ```
->   
->   
->   but a glaring oversight is that when a state has more that 3 state then when you change the state of the surrond node you have to in turn also change the state of those node until the *wave* is over.
+</br>
 
->My idea is to have a sprial pattern of traversal for the nodes and update the states as they go. But it proving difficult i have spent 3 days on it cant seem to get it to work completely.
+### Map
+  The map obj was were some complications arouse. I create a consturctor to make a 2d array based on a user input for size but I was creat in the pointer incorrectly.</br>
+  ```
+  obj*  arr  = new obj[10]   👎 ❌ 
+  obj** arr = new obj*[10]   👍 ✔
+  ```
+  The map is alot simpler all the hard work is done in the node class (aka the updating of the surronding nodes). The only job the map has is to create the 2d map and start the wave collapse. The wave is now inside of a while loop -> when a position is choosen then the wave start and it update around the node base on that change.
+  
+</br>
 
->My next idea might be to try to simplfy and make a it just traverse one node at a time form the begin to the end and update the state based on it surronding states. This way seems simple and easeir to implement just alot more slower than my other method.
+```
+   [{1,2,3} {1,2,3} {1,2,3}]                          [{1,2,3} {1,2,3} {1,2,3}]
+   [{1,2,3} {1,2,3} {1,2,3}]                          [{2,3}    {2,3}    {2,3}]  
+   [{1,2,3} {1,2,3} {1,2,3}]                          [{2,3}     {3}     {2,3}]  
+   [{1,2,3} {1,2,3} {1,2,3}]                          [{2,3}    {2,3}    {2,3}]  
+   [{1,2,3} {1,2,3} {1,2,3}]                          [{1,2,3} {1,2,3} {1,2,3}]
    
-</hr>
-
-## Just Updated 🔥🔥
-
-I have worked on the traversal and the made node more accesable;
-
+```
 
 </br>
 </br>
 </hr>
+
+### Example 
+  This is an example of a generated map. It was generated with 50 x 50 nodes (2500 nodes) and the pixels imgs was added with python. The rules are set as below;
+<div style = "width: 100%;">
+  <img src= "./scr_python/data/1.png" style = "display: inline-block; padding: 20px;"/>
+
+  <img src= "./scr_python/data/2.png" style = "display: inline-block; padding: 20px;"/>
+
+  <img src= "./scr_python/data/3.png" style = "display: inline-block; padding: 20px;"/>
+
+  <img src= "./scr_python/data/4.png" style = "display: inline-block; padding: 20px;"/>
+
+  <img src= "./scr_python/data/5.png" style = "display: inline-block; padding: 20px;"/>
+</div>
+
+<img src = "./scr_python/data/50x50.jpg"/>
+
+<img src = "./scr_python/data/test100.jpg"/>
 
 # Where to next
-- making traversal method for the array
-- making a way to change a node states based on it surrondings.
+- html css and java.
